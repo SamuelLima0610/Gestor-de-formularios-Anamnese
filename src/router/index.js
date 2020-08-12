@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Create from '../components/Screen/Create.vue'
 import List from '../components/Screen/List.vue'
+import Edit from '../components/Screen/Edit.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     name: 'Lista',
     path: '/lista',
     component: List
+  },
+  {
+    name:'Editar',
+    path:'/cliente/:id',
+    component: Edit 
   }
 ]
 

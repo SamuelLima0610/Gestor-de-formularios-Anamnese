@@ -616,9 +616,10 @@
             </v-row>
 
             <v-row>
-                <v-col  cols="12" md="4">
-                    <v-btn class="mr-4" @click="submit">Salvar</v-btn>
-                    <v-btn @click="clear">Limpar</v-btn>
+                <v-col  cols="12" md="12">
+                    <v-btn @click="submit" color="warning">Editar</v-btn>
+                    <v-btn class="ml-4" @click="del" color="error">Deletar</v-btn>
+                    <v-btn class="ml-4" @click="back" color="success">Voltar</v-btn>
                 </v-col>    
             </v-row>
         </v-container>
@@ -631,22 +632,33 @@ import axios from 'axios'
 import {VueEditor} from 'vue2-editor'
 
 export default {
-    name: "Create",
+    name: "Edit",
     components:{VueEditor},
     data(){
         return{
-            information:{}
+            information:{},
+            id: ''
         }
     },
     methods:{
         submit(){
-			axios.post(`https://vuejs-19343.firebaseio.com/clientes.json`,this.information).then(() =>{
-                this.clear();
+			axios.patch(`https://vuejs-19343.firebaseio.com/clientes/${this.id}.json`,this.information).then(() =>{
             })
         },
-        clear(){
-            this.information = {}
+        del(){
+            axios.delete(`https://vuejs-19343.firebaseio.com/clientes/${this.id}.json`).then(() =>{
+                this.back()
+            })
+        },
+        back(){
+            this.$router.push({path: '/lista'})
         }
+    },
+    created(){
+        this.id = this.$route.params.id
+        axios.get(`https://vuejs-19343.firebaseio.com/clientes/${this.id}.json`).then(res => {
+            this.information = res.data
+        })
     }
 }
 </script>

@@ -6,6 +6,7 @@
                 :items="clientes"
                 :items-per-page="5"
                 class="elevation-1"
+                @click:row="selectedRow"
             ></v-data-table>
         </v-container>
     </v-app>
@@ -23,6 +24,11 @@ export default {
                 { text: 'Telefone',align: 'center',sortable: true,value: 'tel',},
                 { text: 'Idade',align: 'center',sortable: true,value: 'idade',},
             ],
+        }
+    },
+    methods:{
+        selectedRow(value){
+            this.$router.push({path: `/cliente/${value.id}`})
         }
     },
     created(){
