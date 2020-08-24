@@ -4,67 +4,9 @@
         <v-container>
             <v-row>
                 <v-col cols="12" md="4">
-                    Informação Gerais:
-                </v-col>
-            </v-row>
-            <v-row>
-                <v-col cols="12" md="4">
-                    <v-text-field
-                        v-model="information.nome"
-                        label="Nome"
-                        required
-                    ></v-text-field>
-                </v-col>
-
-                <v-col  cols="12" md="4">
-                    <v-text-field
-                        v-model="information.tel"
-                        label="Telefone"
-                        required
-                    ></v-text-field>
-                </v-col>
-
-                <v-col cols="12" md="4">
-                    <v-text-field
-                        v-model="information.profissão"
-                        label="Profissão"
-                        required
-                    ></v-text-field>
-                </v-col>
-            </v-row>
-
-            <v-row>
-                <v-col cols="12" md="4">
-                    <v-text-field
-                        v-model="information.idade"
-                        label="Idade"
-                        required
-                    ></v-text-field>
-                </v-col>
-
-                <v-col  cols="12" md="4">
-                    <v-text-field
-                        v-model="information.civil"
-                        label="Estado Civil"
-                        required
-                    ></v-text-field>
-                </v-col>
-
-                <v-col cols="12" md="4">
-                    <v-text-field
-                        v-model="information.motivo"
-                        label="Motivo"
-                        required
-                    ></v-text-field>
-                </v-col>
-            </v-row>
-
-            <v-row>
-                <v-col cols="12" md="4">
                     Anamnese clinica:
                 </v-col>
             </v-row>
-
             <v-row>
                 <v-col cols="12" md="4">
                     <v-checkbox
@@ -640,7 +582,7 @@ export default {
     },
     methods:{
         submit(){
-			axios.post(`https://vuejs-19343.firebaseio.com/clientes.json`,this.information).then(() =>{
+			axios.post(`https://vuejs-19343.firebaseio.com/recipe.json`,this.information).then(() =>{
                 this.clear();
             })
         },

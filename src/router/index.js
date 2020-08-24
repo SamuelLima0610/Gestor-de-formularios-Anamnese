@@ -1,26 +1,32 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Create from '../components/Screen/Create.vue'
-import List from '../components/Screen/List.vue'
-import Edit from '../components/Screen/Edit.vue'
+import newClient from '../components/ScreenClient/Create.vue'
+import listClients from '../components/ScreenClient/List.vue'
+import editClient from '../components/ScreenClient/Edit.vue'
+import newRecipe from '../components/ScreenRecipe/Create.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    name: 'Novo',
+    name: 'NovoCliente',
     path: '/novo',
-    component: Create
+    component: newClient
   },
   {
-    name: 'Lista',
+    name: 'ListaClientes',
     path: '/lista',
-    component: List
+    component: listClients
   },
   {
-    name:'Editar',
+    name:'EditarCliente',
     path:'/cliente/:id',
-    component: Edit 
+    component: editClient
+  },
+  {
+    name:'NovaAvaliacao',
+    path:'/avaliacao/:nome',
+    component: newRecipe
   }
 ]
 
