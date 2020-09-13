@@ -98,7 +98,7 @@
                     <v-btn @click="submit" color="warning">Editar</v-btn>
                     <v-btn class="ml-4" @click="del" color="error">Deletar</v-btn>
                     <v-btn class="ml-4" @click="recipe" color="success">Nova avaliação</v-btn>
-                    <v-btn class="ml-4" @click="recipe" color="primary">Voltar</v-btn>
+                    <v-btn class="ml-4" @click="back" color="primary">Voltar</v-btn>
                 </v-col>    
             </v-row>
         </v-container>
@@ -116,7 +116,7 @@ export default {
             client:{},
             recipes: [],
             cabecalho: [
-                { text: 'Data',align: 'center',sortable: true,value: 'data',},
+                { text: 'Data',align: 'center',sortable: true,value: 'date',},
             ],
         }
     },
@@ -137,7 +137,7 @@ export default {
             this.$router.push({path: `/avaliacao/${this.client.nome}`})
         },
         selectedRow(value){
-            this.$router.push({path: `/cliente/${value.id}`})
+            this.$router.push({path: `/avaliacao/editar/${value.id}`})
         }
     },
     created(){
@@ -148,7 +148,7 @@ export default {
                 let array = [];
                 for(let chave in res.data){
                     let information = {id: chave, ...res.data[chave]}
-                    if(information.nome == this.client.nome) array.push({id: chave, ...res.data[chave]});
+                    if(information.name == this.client.nome) array.push({id: chave, ...res.data[chave]});
                 }
                 this.recipes = array
             })

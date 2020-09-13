@@ -4,9 +4,62 @@
         <v-container>
             <v-row>
                 <v-col cols="12" md="4">
-                    Anamnese clinica:
+                    Anamnese clinica({{information.name}}):
                 </v-col>
             </v-row>
+
+            <v-row>
+                <v-col cols="12" md="4">
+                    <v-text-field
+                        v-model="information.date"
+                        label="Data"
+                        required
+                    ></v-text-field>
+                </v-col>
+
+                <v-col  cols="12" md="4">
+                    <v-text-field
+                        v-model="information.intolerancias"
+                        label="Intolerâncias"
+                        required
+                    ></v-text-field>
+                </v-col>
+
+                <v-col cols="12" md="4">
+                    <v-text-field
+                        v-model="information.alergias"
+                        label="Alergias"
+                        required
+                    ></v-text-field>
+                </v-col>
+            </v-row>
+
+            <v-row>
+                <v-col cols="12" md="4">
+                    <v-text-field
+                        v-model="information.aversao"
+                        label="Aversão"
+                        required
+                    ></v-text-field>
+                </v-col>
+
+                <v-col  cols="12" md="4">
+                    <v-text-field
+                        v-model="information.preferencia"
+                        label="Preferências"
+                        required
+                    ></v-text-field>
+                </v-col>
+
+                <v-col cols="12" md="4">
+                    <v-text-field
+                        v-model="information.ingestaoAgua"
+                        label="Ingestão de Água"
+                        required
+                    ></v-text-field>
+                </v-col>
+            </v-row>
+
             <v-row>
                 <v-col cols="12" md="4">
                     <v-checkbox
@@ -558,9 +611,10 @@
             </v-row>
 
             <v-row>
-                <v-col  cols="12" md="4">
-                    <v-btn class="mr-4" @click="submit">Salvar</v-btn>
-                    <v-btn @click="clear">Limpar</v-btn>
+                <v-col  cols="12" md="12">
+                    <v-btn @click="submit" color="success">Salvar</v-btn>
+                    <v-btn class="ml-4" @click="clear" color="error">Limpar</v-btn>
+                    <v-btn class="ml-4" @click="back" color="primary">Voltar</v-btn>
                 </v-col>    
             </v-row>
         </v-container>
@@ -588,7 +642,14 @@ export default {
         },
         clear(){
             this.information = {}
+            this.information.name = this.$route.params.nome;
+        },
+        back(){
+            this.$router.push({path: '/lista'})
         }
+    },
+    created(){
+        this.information.name = this.$route.params.nome;
     }
 }
 </script>

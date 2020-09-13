@@ -4,30 +4,31 @@
         <v-container>
             <v-row>
                 <v-col cols="12" md="4">
-                    Informação Gerais:
+                    Anamnese clinica({{information.name}}):
                 </v-col>
             </v-row>
+
             <v-row>
                 <v-col cols="12" md="4">
                     <v-text-field
-                        v-model="information.nome"
-                        label="Nome"
+                        v-model="information.date"
+                        label="Data"
                         required
                     ></v-text-field>
                 </v-col>
 
                 <v-col  cols="12" md="4">
                     <v-text-field
-                        v-model="information.tel"
-                        label="Telefone"
+                        v-model="information.intolerancias"
+                        label="Intolerâncias"
                         required
                     ></v-text-field>
                 </v-col>
 
                 <v-col cols="12" md="4">
                     <v-text-field
-                        v-model="information.profissão"
-                        label="Profissão"
+                        v-model="information.alergias"
+                        label="Alergias"
                         required
                     ></v-text-field>
                 </v-col>
@@ -36,32 +37,26 @@
             <v-row>
                 <v-col cols="12" md="4">
                     <v-text-field
-                        v-model="information.idade"
-                        label="Idade"
+                        v-model="information.aversao"
+                        label="Aversão"
                         required
                     ></v-text-field>
                 </v-col>
 
                 <v-col  cols="12" md="4">
                     <v-text-field
-                        v-model="information.civil"
-                        label="Estado Civil"
+                        v-model="information.preferencia"
+                        label="Preferências"
                         required
                     ></v-text-field>
                 </v-col>
 
                 <v-col cols="12" md="4">
                     <v-text-field
-                        v-model="information.motivo"
-                        label="Motivo"
+                        v-model="information.ingestaoAgua"
+                        label="Ingestão de Água"
                         required
                     ></v-text-field>
-                </v-col>
-            </v-row>
-
-            <v-row>
-                <v-col cols="12" md="4">
-                    Anamnese clinica:
                 </v-col>
             </v-row>
 
@@ -619,7 +614,7 @@
                 <v-col  cols="12" md="12">
                     <v-btn @click="submit" color="warning">Editar</v-btn>
                     <v-btn class="ml-4" @click="del" color="error">Deletar</v-btn>
-                    <v-btn class="ml-4" @click="back" color="success">Voltar</v-btn>
+                    <v-btn class="ml-4" @click="recipe" color="primary">Voltar</v-btn>
                 </v-col>    
             </v-row>
         </v-container>
@@ -642,11 +637,11 @@ export default {
     },
     methods:{
         submit(){
-			axios.patch(`https://vuejs-19343.firebaseio.com/clientes/${this.id}.json`,this.information).then(() =>{
+			axios.patch(`https://vuejs-19343.firebaseio.com/recipe/${this.id}.json`,this.information).then(() =>{
             })
         },
         del(){
-            axios.delete(`https://vuejs-19343.firebaseio.com/clientes/${this.id}.json`).then(() =>{
+            axios.delete(`https://vuejs-19343.firebaseio.com/recipe/${this.id}.json`).then(() =>{
                 this.back()
             })
         },
@@ -656,7 +651,7 @@ export default {
     },
     created(){
         this.id = this.$route.params.id
-        axios.get(`https://vuejs-19343.firebaseio.com/clientes/${this.id}.json`).then(res => {
+        axios.get(`https://vuejs-19343.firebaseio.com/recipe/${this.id}.json`).then(res => {
             this.information = res.data
         })
     }

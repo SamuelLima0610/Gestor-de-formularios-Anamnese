@@ -4,6 +4,7 @@ import newClient from '../components/ScreenClient/Create.vue'
 import listClients from '../components/ScreenClient/List.vue'
 import editClient from '../components/ScreenClient/Edit.vue'
 import newRecipe from '../components/ScreenRecipe/Create.vue'
+import editRecipe from '../components/ScreenRecipe/Edit.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     name:'NovaAvaliacao',
     path:'/avaliacao/:nome',
     component: newRecipe
+  },
+  {
+    name:'EditarAvaliacao',
+    path:'/avaliacao/editar/:id',
+    component: editRecipe
   }
 ]
 
