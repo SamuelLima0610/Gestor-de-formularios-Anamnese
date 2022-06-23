@@ -1,24 +1,12 @@
-# electroncrudclientes
+# Gestor de Fichas de Amamnese
 
-## Project setup
-```
-npm install
-```
+Projeto desenvolvido para uma nutricionista e farmacêutica. Sistema responsável pelo preenchimento dos dados da ficha de amamense dos clientes.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## ✔️ Técnicas e tecnologias utilizadas
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- ``Vue``
+- ``Electron``
+- ``Firebase``
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 📁 Acesso ao projeto
+Você pode acessar os arquivos do projeto clicando [aqui](https://github.com/gui-lirasilva/Edige-POO/tree/master/src).
